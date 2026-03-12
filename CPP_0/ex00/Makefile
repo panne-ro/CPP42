@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+         #
+#    By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/02 18:40:00 by panne-ro          #+#    #+#              #
-#    Updated: 2026/03/02 18:43:14 by panne-ro         ###   ########.fr        #
+#    Updated: 2026/03/11 17:27:54 by bliblo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= megaphone
-SRCS		= ./megaphone.cpp
+SRCS		= megaphone.cpp
 OBJS		= $(SRCS:.cpp=.o)
-CXX			= c++
+CXX			= g++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 

@@ -6,7 +6,7 @@
 /*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 12:18:17 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/12 14:06:30 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/03/12 17:16:45 by bliblo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class PhoneBook
 	
 		Contact	Contacts[8];
 		
-		void Add(int i);
-		
+		void	AddContact();
+
 		PhoneBook(void);
 		~PhoneBook(void);
 

@@ -6,19 +6,20 @@
 /*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 11:56:07 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/12 14:09:31 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/03/12 17:16:32 by bliblo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void	PhoneBook::Add(int i)
+void	PhoneBook::AddContact()
 {
-	Contacts[i].index = i + 1;
-	std::cout << "First Name : ";
-	std::cin >> Contacts[i].FirstName;
-	std::cout << std::endl << "ID = " << Contacts[i].index << "First Name = " << Contacts[i].FirstName << std::endl;
-	return ;
+	static int i;
+
+	if (i > 7)
+		i = 0;
+	Contacts[i].Add(i);
+	std::cout << Contacts[i].index << Contacts[i].PhoneNumber << Contacts[i].FirstName << Contacts[i].DarkestSecret << std::endl;
 }
 
 PhoneBook::PhoneBook()

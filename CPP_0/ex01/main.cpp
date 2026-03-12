@@ -6,7 +6,7 @@
 /*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 17:15:28 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/12 14:12:14 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/03/12 17:14:02 by bliblo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 int	main()
 {
-	int i = 0;
 	PhoneBook	PhoneBook;
 	std::string	Tmp;
 	
 	while (1)
 	{
 		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-		std::cin >> Tmp;
-		if (Tmp == "ADD")
-			PhoneBook.Add(i);
+		std::getline(std::cin, Tmp);
+		if (Tmp == "ADD" || Tmp == "add" || Tmp == "Add")
+				PhoneBook.AddContact();
+		if (Tmp == "EXIT" || Tmp == "exit" || Tmp == "Exit")
+			break ;
 		else
-			return (0);
+			continue ;
 	}
 	return (0);
 }
