@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 17:15:28 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/12 17:14:02 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/03/13 13:19:37 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main()
 		std::getline(std::cin, Tmp);
 		if (Tmp == "ADD" || Tmp == "add" || Tmp == "Add")
 				PhoneBook.AddContact();
+		if (Tmp == "SEARCH" || Tmp == "search" || Tmp == "Search")
+				PhoneBook.Search();
 		if (Tmp == "EXIT" || Tmp == "exit" || Tmp == "Exit")
 			break ;
 		else
