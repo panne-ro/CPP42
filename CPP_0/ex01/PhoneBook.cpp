@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 11:56:07 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/28 12:42:11 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:42:49 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void		PhoneBook::Search()
 	while (x == -1)
 	{
 		std::cout << "Enter Index: ";
-		std::getline(std::cin, field);
+		if (!std::getline(std::cin, field))
+			return ;
 		x = ConvertInInt(field);
 	}
 	PhoneBook::PrintIndex(x);

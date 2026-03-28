@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 12:23:26 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/12 17:22:44 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/03/28 18:41:31 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,27 @@ int		Contact::IsEmpty(std::string str)
 	return (1);
 }
 
-void Contact::AskField(const std::string label, std::string& field)
+int Contact::AskField(const std::string label, std::string& field)
 {
 	std::cout << label;
 	std::getline(std::cin, field);
 	while (IsEmpty(field))
 	{
 		std::cout << "Field can't be empty\n" << label;
-		std::getline(std::cin, field);
+		if (!std::getline(std::cin, field))
+			return (1) ;
 	}
+	return (0);
 }
 
-void	Contact::AskPhoneNumber()
+int	Contact::AskPhoneNumber()
 {
 	int GoodNumber = 0;
 	std::cout << "Phone number : ";
 	while (GoodNumber != 1)
 	{
-		std::getline(std::cin, PhoneNumber);
+		if (!std::getline(std::cin, PhoneNumber))
+			return (1);
 		if (Contact::IsEmpty(PhoneNumber) == 1)
 		{
 			std::cout << "Field can't be empty" << std::endl << "Phone number : ";
@@ -74,16 +77,23 @@ void	Contact::AskPhoneNumber()
 		else
 			GoodNumber = 1;
 	}
+	return (0);
 }
 
 void Contact::Add(int i)
 {
 	index = i + 1;
-	AskField("First name : ", FirstName);
-	AskField("Last name : ", LastName);
-	AskField("Nickname : ", NickName);
-	AskPhoneNumber();
-	AskField("Darkest secret : ", DarkestSecret);
+	
+	if (AskField("First name : ", FirstName) == 0)
+		return ;
+	if (AskField("Last name : ", LastName) == 0)
+		return ;
+	if (AskField("Nickname : ", NickName) == 0)
+		return ;
+	if (AskPhoneNumber() == 0)
+		return ;
+	if (AskField("Darkest secret : ", DarkestSecret) == 0)
+		return ;
 }
 
 Contact::Contact()

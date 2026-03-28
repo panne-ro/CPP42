@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 17:15:28 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/13 13:19:37 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:36:32 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ int	main()
 	while (1)
 	{
 		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-		std::getline(std::cin, Tmp);
-		if (Tmp == "ADD" || Tmp == "add" || Tmp == "Add")
+		if (!std::getline(std::cin, Tmp))
+			break ;
+		if (Tmp == "ADD")
 				PhoneBook.AddContact();
-		if (Tmp == "SEARCH" || Tmp == "search" || Tmp == "Search")
+		if (Tmp == "SEARCH")
 				PhoneBook.Search();
-		if (Tmp == "EXIT" || Tmp == "exit" || Tmp == "Exit")
+		if (Tmp == "EXIT")
 			break ;
 		else
 			continue ;

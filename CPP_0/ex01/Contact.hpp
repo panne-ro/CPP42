@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 12:23:43 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/12 17:17:47 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/03/28 18:41:43 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Contact
 		
 		int		IsEmpty(std::string str);
 		int		IsAllDigit(std::string str);
-		void	AskField(const std::string label, std::string& field);
-		void	AskPhoneNumber();
+		int	AskField(const std::string label, std::string& field);
+		int	AskPhoneNumber();
 		void	Add(int i);
 
 		Contact(void);
