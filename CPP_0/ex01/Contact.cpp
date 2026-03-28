@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 12:23:26 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/28 18:41:31 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:31:15 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,15 @@ void Contact::Add(int i)
 {
 	index = i + 1;
 	
-	if (AskField("First name : ", FirstName) == 0)
+	if (AskField("First name : ", FirstName) == 1)
 		return ;
-	if (AskField("Last name : ", LastName) == 0)
+	if (AskField("Last name : ", LastName) == 1)
 		return ;
-	if (AskField("Nickname : ", NickName) == 0)
+	if (AskField("Nickname : ", NickName) == 1)
 		return ;
-	if (AskPhoneNumber() == 0)
+	if (AskPhoneNumber() == 1)
 		return ;
-	if (AskField("Darkest secret : ", DarkestSecret) == 0)
+	if (AskField("Darkest secret : ", DarkestSecret) == 1)
 		return ;
 }
 
