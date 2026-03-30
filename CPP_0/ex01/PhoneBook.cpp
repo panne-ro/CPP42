@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 11:56:07 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/28 18:42:49 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:28:12 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@ std::string	CutToTen(std::string str)
 void		PhoneBook::PrintIndex(int x)
 {
 	int idx = x - 1;
-	
-	std::cout << "First Name: " << Contacts[idx].FirstName << std::endl;
-	std::cout << "Last Name: " << Contacts[idx].LastName << std::endl;
-	std::cout << "Nickname: " << Contacts[idx].NickName << std::endl;
-	std::cout << "Phone Number: " << Contacts[idx].PhoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << Contacts[idx].DarkestSecret << std::endl;
+	Contacts[idx].displayDetails();
 }
 
 int			PhoneBook::ConvertInInt(std::string str)
@@ -58,15 +53,14 @@ void		PhoneBook::Search()
 	std::cout << "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
 	for (int x = 0; x < NumberOfContacts; x++)
 	{
-		std::cout << "|" << std::setw(10) << Contacts[x].index << "|";
-		std::cout << "|" << std::setw(10) << CutToTen(Contacts[x].FirstName) << "|";
-		std::cout << "|" << std::setw(10) << CutToTen(Contacts[x].LastName) << "|";
-		std::cout << "|" << std::setw(10) << CutToTen(Contacts[x].NickName) << "|" << std::endl;
+		std::cout << "|" << std::setw(10) << Contacts[x].getIndex() << "|";
+		std::cout << "|" << std::setw(10) << CutToTen(Contacts[x].getFirstName()) << "|";
+		std::cout << "|" << std::setw(10) << CutToTen(Contacts[x].getLastName()) << "|";
+		std::cout << "|" << std::setw(10) << CutToTen(Contacts[x].getNickName()) << "|" << std::endl;
 	}
 	
 	int 		x;
 	std::string	field;
-	Contact		contact;
 	
 	x = -1;
 	while (x == -1)
@@ -81,15 +75,16 @@ void		PhoneBook::Search()
 
 void		PhoneBook::AddContact()
 {
-	if (NumberOfContacts > 7)
-		NumberOfContacts = 0;
-	Contacts[NumberOfContacts].Add(NumberOfContacts);
-	NumberOfContacts++;
+	Contacts[NextIndex].Add(NextIndex);
+	NextIndex = (NextIndex + 1) % 8;
+	if (NumberOfContacts < 8)
+		NumberOfContacts++;
 }
 
 PhoneBook::PhoneBook()
 {
 	NumberOfContacts = 0;
+	NextIndex = 0;
 }
 
 PhoneBook::~PhoneBook()

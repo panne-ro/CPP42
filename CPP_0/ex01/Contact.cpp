@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 12:23:26 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/28 20:31:15 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:13:25 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,45 @@ void Contact::Add(int i)
 		return ;
 	if (AskField("Darkest secret : ", DarkestSecret) == 1)
 		return ;
+}
+
+int	Contact::getIndex(void) const
+{
+	return index;
+}
+
+std::string	Contact::getFirstName(void) const
+{
+	return FirstName;
+}
+
+std::string	Contact::getLastName(void) const
+{
+	return LastName;
+}
+
+std::string	Contact::getNickName(void) const
+{
+	return NickName;
+}
+
+std::string	Contact::getPhoneNumber(void) const
+{
+	return PhoneNumber;
+}
+
+std::string	Contact::getDarkestSecret(void) const
+{
+	return DarkestSecret;
+}
+
+void	Contact::displayDetails(void) const
+{
+	std::cout << "First Name: " << FirstName << std::endl;
+	std::cout << "Last Name: " << LastName << std::endl;
+	std::cout << "Nickname: " << NickName << std::endl;
+	std::cout << "Phone Number: " << PhoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << DarkestSecret << std::endl;
 }
 
 Contact::Contact()
