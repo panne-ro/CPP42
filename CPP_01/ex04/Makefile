@@ -3,34 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+         #
+#    By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/02 18:40:00 by panne-ro          #+#    #+#              #
-#    Updated: 2026/03/11 17:27:54 by bliblo           ###   ########.fr        #
+#    Created: 2026/04/08 13:59:02 by panne-ro          #+#    #+#              #
+#    Updated: 2026/04/13 15:35:38 by panne-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= megaphone
-SRCS		= megaphone.cpp
-OBJS		= $(SRCS:.cpp=.o)
-CXX			= g++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+NAME = replace
 
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all			: $(NAME)
+SRC =	main.cpp Replace.cpp
+OBJ = $(SRC:.cpp=.o)
 
-$(NAME)		: $(OBJS)
-			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+all: $(NAME)
 
-%.o			: %.cpp
-			$(CXX) $(CXXFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-clean		:
-			rm -f $(OBJS)
-			
-fclean		: clean
-			rm -f $(NAME)
-			
-re			: fclean all
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-.PHONY		: all clean fclean re
+clean:
+		rm -f $(OBJ)
+
+fclean: clean
+		rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

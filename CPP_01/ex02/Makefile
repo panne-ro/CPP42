@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/28 19:32:57 by panne-ro          #+#    #+#              #
-#    Updated: 2026/03/28 19:32:59 by panne-ro         ###   ########.fr        #
+#    Created: 2026/03/31 13:42:41 by panne-ro          #+#    #+#              #
+#    Updated: 2026/03/31 13:43:57 by panne-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = PhoneBook
+NAME = Brain
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	main.cpp PhoneBook.cpp Contact.cpp
+SRC =	main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

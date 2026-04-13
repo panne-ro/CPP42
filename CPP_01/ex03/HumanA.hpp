@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 17:15:28 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/28 18:36:32 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/03/31 14:06:26 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/03/31 14:20:23 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Weapon.hpp"
 
-int	main()
+class HumanA
 {
-	PhoneBook	PhoneBook;
-	std::string	Tmp;
-	
-	while (1)
-	{
-		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-		if (!std::getline(std::cin, Tmp))
-			break ;
-		if (Tmp == "ADD")
-				PhoneBook.AddContact();
-		if (Tmp == "SEARCH")
-				PhoneBook.Search();
-		if (Tmp == "EXIT")
-			break ;
-		else
-			continue ;
-	}
-	return (0);
-}
+	private:
+		Weapon 		&_weapon;
+		std::string	_name;
+
+	public:
+		void	attack();
+
+		HumanA(std::string startType, Weapon &weapon);
+		~HumanA();
+};

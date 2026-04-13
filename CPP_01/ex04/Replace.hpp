@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 12:18:17 by bliblo            #+#    #+#             */
-/*   Updated: 2026/03/30 15:25:20 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/04/08 14:00:44 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/04/13 18:36:32 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include "Contact.hpp"
+#ifndef REPLACE_HPP
+#define REPLACE_HPP
 
-class PhoneBook 
-{	
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+class Replace
+{
 	private:
-	
-		Contact	Contacts[8];
-		int		NumberOfContacts;
-		int		NextIndex;
+		int				canOpenFile;
+		std::string 	name;
+		std::string		fileContent;
+		std::ifstream	fileReceive;
+		std::string		newContent;
 		
 	public:
-		int 	ConvertInInt(std::string str);
-		void	PrintIndex(int x);
-		void	AddContact();
-		void	Search();
-	
-		PhoneBook(void);
-		~PhoneBook(void);
+		int 	fileCanOpen();
+		size_t	sherchS1(std::string &file, std::string s1);
+		void	replaceByS2(std::string s1, std::string s2);
+		void	createFile();
 
+		Replace(char *argv);
+		~Replace();
 };
+
+#endif

@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/30 12:00:00 by panne-ro          #+#    #+#              #
-#    Updated: 2026/03/30 11:39:56 by panne-ro         ###   ########.fr        #
+#    Created: 2026/03/28 19:44:34 by panne-ro          #+#    #+#              #
+#    Updated: 2026/03/31 12:02:24 by panne-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = tests
+NAME = zombieHorde
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	Account.cpp tests.cpp
+SRC =	main.cpp zombieHorde.cpp Zombie.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -27,10 +27,10 @@ $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+		rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 
