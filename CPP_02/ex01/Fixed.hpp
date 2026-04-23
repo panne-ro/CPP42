@@ -29,10 +29,6 @@ class Fixed
 
 };
 
-inline std::ostream& operator<<(std::ostream& os, const Fixed& f)
-{
-    os << f.toFloat();
-    return os;
-}
+std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 #endif

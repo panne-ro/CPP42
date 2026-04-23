@@ -63,3 +63,10 @@ Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+//funcion not in Fixe
+std::ostream& operator<<(std::ostream& os, const Fixed& f)
+{
+    os << f.toFloat();
+    return os;
+}
