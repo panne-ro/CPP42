@@ -56,6 +56,15 @@ int	ClapTrap::haveEnergy()
 		return (1);
 }
 
+ClapTrap::ClapTrap()
+{
+	_EnergyPoints = 10;
+	_HitPoints = 10;
+	_AttackDamage = 0;
+	_name = "ClapTrap";
+	std::cout << WHITE << "ClapTrap is construct" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
 	_EnergyPoints = 10;
@@ -63,6 +72,28 @@ ClapTrap::ClapTrap(std::string name)
 	_AttackDamage = 0;
 	_name = name;
 	std::cout << WHITE << "ClapTrap " << _name << " is construct" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap& c)
+{
+	std::cout << WHITE << "Copy ClapTrap " << _name << " is construct" << std::endl;
+	_name = c._name;
+	_HitPoints = c._HitPoints;
+	_EnergyPoints = c._EnergyPoints;
+	_AttackDamage = c._AttackDamage;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& c)
+{
+	std::cout << WHITE << "Copy Assignement ClapTrap " << _name << " is construct" << std::endl;
+	if (this != &c)
+	{
+		_name = c._name;
+		_HitPoints = c._HitPoints;
+		_EnergyPoints = c._EnergyPoints;
+		_AttackDamage = c._AttackDamage;
+	}
+	return *this; 
 }
 
 ClapTrap::~ClapTrap()

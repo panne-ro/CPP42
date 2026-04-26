@@ -17,6 +17,15 @@ void FragTrap::highFivesGuys(const std::string &target)
 	std::cout << CYAN << "FragTrap " << _name << " do a positive high-fives request at " << target << std::endl;
 }
 
+FragTrap::FragTrap()
+{
+	_EnergyPoints = 100;
+	_HitPoints = 100;
+	_AttackDamage = 30;
+	_name = "FragTrap";
+	std::cout << WHITE << "FragTrap is construct" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name)
 	:ClapTrap(name)
 {
@@ -25,6 +34,28 @@ FragTrap::FragTrap(std::string name)
 	_EnergyPoints = 100;
 	_AttackDamage = 30;
 	std::cout << WHITE << "FragTrap " << _name << " is construct" << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap& f)
+{
+	std::cout << WHITE << "Copy FragTrap " << _name << " is construct" << std::endl;
+	_name = f._name;
+	_HitPoints = f._HitPoints;
+	_EnergyPoints = f._EnergyPoints;
+	_AttackDamage = f._AttackDamage;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& f)
+{
+	std::cout << WHITE << "Copy Assignement FragTrap " << _name << " is construct" << std::endl;
+	if (this != &f)
+	{
+		_name = f._name;
+		_HitPoints = f._HitPoints;
+		_EnergyPoints = f._EnergyPoints;
+		_AttackDamage = f._AttackDamage;
+	}
+	return *this; 
 }
 
 FragTrap::~FragTrap()

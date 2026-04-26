@@ -22,7 +22,10 @@ class ClapTrap
 	int		isAlive();
 	int		haveEnergy();
 	
+	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap& c);
+	ClapTrap& operator=(const ClapTrap& c);
 	~ClapTrap();
 };
 

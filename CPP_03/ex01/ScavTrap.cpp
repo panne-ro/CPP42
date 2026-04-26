@@ -17,6 +17,15 @@ void ScavTrap::guardGate()
 	std::cout << CYAN << _name << " is now in gate keeper mode" << std::endl;
 }
 
+ScavTrap::ScavTrap()
+{
+	_EnergyPoints = 100;
+	_HitPoints = 50;
+	_AttackDamage = 20;
+	_name = "ScavTrap";
+	std::cout << WHITE << "ScavTrap is construct" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name)
 	:ClapTrap(name)
 {
@@ -25,6 +34,28 @@ ScavTrap::ScavTrap(std::string name)
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
 	std::cout << WHITE << "ScavTrap " << _name << " is construct" << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap& s)
+{
+	std::cout << WHITE << "Copy ScavTrap " << _name << " is construct" << std::endl;
+	_name = s._name;
+	_HitPoints = s._HitPoints;
+	_EnergyPoints = s._EnergyPoints;
+	_AttackDamage = s._AttackDamage;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& s)
+{
+	std::cout << WHITE << "Copy Assignement ScavTrap " << _name << " is construct" << std::endl;
+	if (this != &s)
+	{
+		_name = s._name;
+		_HitPoints = s._HitPoints;
+		_EnergyPoints = s._EnergyPoints;
+		_AttackDamage = s._AttackDamage;
+	}
+	return *this; 
 }
 
 ScavTrap::~ScavTrap()

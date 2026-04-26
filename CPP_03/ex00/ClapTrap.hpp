@@ -22,7 +22,10 @@ public:
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
+	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap& c);
+	ClapTrap& operator=(const ClapTrap& c);
 	~ClapTrap();
 };
 
