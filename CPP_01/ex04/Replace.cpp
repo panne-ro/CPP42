@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 14:01:28 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/13 18:38:21 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/04/26 12:17:35 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,24 @@ int 	Replace::fileCanOpen()
 
 size_t	Replace::sherchS1(std::string &file, std::string s1)
 {
+	if (s1 == "")
+		return std::string::npos;
 	size_t buffer = file.find(s1);
 	return (buffer);
 }
+
+void 	Replace::ChangeString(std::string s1, std::string s2, size_t pos)
+{
+		fileContent.erase(pos, s1.length());
+		fileContent.insert(pos, s2);
+} 
 
 void	Replace::replaceByS2(std::string s1, std::string s2)
 {
 	size_t	pos = sherchS1(fileContent, s1);
 	while (pos != std::string::npos)
 	{
-		fileContent.replace(pos, s1.length(), s2);
+		ChangeString(s1, s2, pos);
 		pos = fileContent.find(s1, pos + s2.length());
 	}
 	createFile();

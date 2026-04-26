@@ -1,11 +1,11 @@
 
 
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
+
 #include <iostream>
 #include <string>
 #include "../Color.h"
-
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
 
 class ClapTrap
 {

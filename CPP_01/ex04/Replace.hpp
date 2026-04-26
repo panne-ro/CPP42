@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 14:00:44 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/13 18:36:32 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/04/26 12:12:00 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Replace
 	public:
 		int 	fileCanOpen();
 		size_t	sherchS1(std::string &file, std::string s1);
+		void 	ChangeString(std::string s1, std::string s2, size_t pos);
 		void	replaceByS2(std::string s1, std::string s2);
 		void	createFile();
 
