@@ -6,9 +6,12 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 19:46:44 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/03/28 20:22:49 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/04/29 15:41:27 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -25,3 +28,5 @@ class Zombie
 
 Zombie*	newZombie(std::string name);
 void	randomChump(std::string name);
+
+#endif

@@ -6,9 +6,12 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 14:06:44 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/03/31 14:48:21 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:16:16 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 
@@ -26,4 +29,4 @@ class HumanB
 		~HumanB();
 };
 
-
+#endif
