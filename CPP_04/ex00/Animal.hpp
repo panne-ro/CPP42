@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/25 13:37:59 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/30 14:45:38 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/04/30 14:46:04 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/04/30 16:01:02 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef ANIMAL_HPP
+#define ANIAML_HPP
 
-int main(void)
+#include <iostream>
+
+class Animal
 {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
-	c = b;
+	protected:
+	std::string	type;
+	std::string sound;
+	
+	public:
+	std::string	getType();
+	void 		setType(std::string type);
+	void		makeSound();
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+	Animal();
+	Animal(Animal& a);
+	Animal& operator=(const Animal& a);
+	~Animal();
+};
 
-	return 0;
-}
+#endif

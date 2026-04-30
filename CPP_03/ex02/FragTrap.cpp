@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:19:03 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/28 13:19:04 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:33:22 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ FragTrap::FragTrap(std::string name)
 }
 
 FragTrap::FragTrap(FragTrap& f)
+	:ClapTrap(f._name)
 {
 	std::cout << WHITE << "Copy FragTrap " << _name << " is construct" << std::endl;
 	_name = f._name;

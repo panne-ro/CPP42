@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:19:22 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/28 13:19:23 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:33:31 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ ScavTrap::ScavTrap(std::string name)
 }
 
 ScavTrap::ScavTrap(ScavTrap& s)
+	:ClapTrap(s._name)
 {
 	std::cout << WHITE << "Copy ScavTrap " << _name << " is construct" << std::endl;
 	_name = s._name;

@@ -5,23 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/25 13:37:59 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/30 14:45:38 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/04/30 16:04:10 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/04/30 16:04:34 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-
-int main(void)
-{
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
-	c = b;
-
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	return 0;
-}
+#include "Cat.hpp"
+#include "Dog.hpp"

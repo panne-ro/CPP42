@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/25 13:37:59 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/30 14:45:38 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/04/30 14:46:12 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/04/30 16:05:01 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-int main(void)
+#include "Animal.hpp"
+
+class Dog: public Animal
 {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
-	c = b;
+	public:
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+	Dog();
+	Dog(Dog& d);
+	Dog& operator=(Dog& d);
+	~Dog();
+};
 
-	return 0;
-}
+#endif;
+	
