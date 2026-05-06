@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 14:06:55 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/05/01 17:40:04 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/05/01 15:08:43 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/05/01 17:43:14 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-void	HumanB::attack()
-{
-	if (_weapon)
-		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
-	else
-		std::cout << _name << " have no weapon" << std::endl;
-}
+#include <iostream>
 
-void	HumanB::setWeapon(Weapon& receive)
+class WrongAnimal
 {
-	_weapon = &receive;
-}
+	protected:
+	std::string type;
 
-HumanB::HumanB(std::string Name)
-	:_name(Name), _weapon(NULL)
-{
-}
+	public:
+	std::string	getType() const;
+	void		setType(std::string t);
+	void		makeSound() const;
+	
+	WrongAnimal();
+	WrongAnimal(WrongAnimal& a);
+	WrongAnimal& operator=(const WrongAnimal& a);
+	~WrongAnimal();
+};
 
-HumanB::~HumanB()
-{
-}
+#endif

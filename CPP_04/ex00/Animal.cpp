@@ -6,13 +6,13 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 14:46:01 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/30 16:01:57 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:32:46 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-std::string Animal::getType()
+std::string Animal::getType() const
 {
 	return (type);
 }
@@ -22,33 +22,28 @@ void Animal::setType(std::string t)
 	type = t;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
-	std::cout << sound << std::endl;
+	std::cout << "Animal sound" << std::endl;
 }
 
 Animal::Animal()
 {
 	std::cout << "Construct Animal" << std::endl;
-	type = "animal";
-	sound = "Animal sound";
+	type = "Animal";
 }
 
 Animal::Animal(Animal& a)
 {
 	std::cout << "Copy Construct Animal" << std::endl;
 	type = a.type;
-	sound = a.sound;
 }
 
 Animal& Animal::operator=(const Animal& a)
 {
 	std::cout << "Copy Assigenement Animal" << std::endl;
 	if (this != &a)
-	{
 		type = a.type;
-		sound = a.sound;
-	}
 	return (*this);
 }
 

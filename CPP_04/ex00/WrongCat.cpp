@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 14:46:06 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/05/01 15:37:11 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/05/01 15:23:45 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/05/01 15:31:06 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-void	Cat::makeSound() const
+WrongCat::WrongCat()
 {
-	std::cout << "Miaou" << std::endl;  
+	std::cout << "Construct WrongCat" << std::endl;
+	type = "WrongCat";
 }
 
-Cat::Cat()
+WrongCat::WrongCat(WrongCat& c)
+	:WrongAnimal()
 {
-	std::cout << "Construct Cat" << std::endl;
-	type = "Cat";
-}
-
-Cat::Cat(Cat& c)
-	:Animal()
-{
-	std::cout << "Copy Construct Cat" << std::endl;
+	std::cout << "Copy Construct WrongCat" << std::endl;
 	type = c.type;
 }
 
-Cat& Cat::operator=(Cat& c)
+WrongCat& WrongCat::operator=(WrongCat& c)
 {
-	std::cout << "Copy Assignement Cat" << std::endl;
+	std::cout << "Copy Assignement WrongCat" << std::endl;
 	if (this != &c)
 		type = c.type;
 	return (*this);
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Destruct Cat" << std::endl;
+	std::cout << "Destruct WrongCat" << std::endl;
 }

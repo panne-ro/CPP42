@@ -6,17 +6,21 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 14:46:10 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/30 16:03:43 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:37:06 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+void	Dog::makeSound() const
+{
+	std::cout << "Whouaf" << std::endl;  
+}
+
 Dog::Dog()
 {
 	std::cout << "Construct Dog" << std::endl;
 	type = "Dog";
-	sound = "Whoaf";
 }
 
 Dog::Dog(Dog& d)
@@ -24,7 +28,6 @@ Dog::Dog(Dog& d)
 {
 	std::cout << "Copy Construct Dog" << std::endl;
 	type = d.type;
-	sound = d.sound;
 }
 
 Dog& Dog::operator=(Dog& d)
@@ -33,7 +36,6 @@ Dog& Dog::operator=(Dog& d)
 	if (this != &d)
 	{
 		type = d.type;
-		sound = d.sound;
 	}
 	return (*this);
 }

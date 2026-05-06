@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 14:06:55 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/05/01 17:40:04 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/05/01 15:06:17 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/05/01 15:23:14 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-void	HumanB::attack()
-{
-	if (_weapon)
-		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
-	else
-		std::cout << _name << " have no weapon" << std::endl;
-}
+#include "WrongAnimal.hpp"
 
-void	HumanB::setWeapon(Weapon& receive)
+class WrongCat: public WrongAnimal
 {
-	_weapon = &receive;
-}
+	public:
+	
+	WrongCat();
+	WrongCat(WrongCat& c);
+	WrongCat& operator=(WrongCat& c);
+	~WrongCat();
+};
 
-HumanB::HumanB(std::string Name)
-	:_name(Name), _weapon(NULL)
-{
-}
-
-HumanB::~HumanB()
-{
-}
+#endif

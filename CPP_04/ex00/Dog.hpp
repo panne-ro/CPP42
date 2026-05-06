@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 14:46:12 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/04/30 16:05:01 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:36:59 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Dog: public Animal
 {
 	public:
+	void	makeSound() const;
 
 	Dog();
 	Dog(Dog& d);
@@ -25,5 +26,4 @@ class Dog: public Animal
 	~Dog();
 };
 
-#endif;
-	
+#endif
