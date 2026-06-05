@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 09:47:21 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/05 10:49:20 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/05 12:20:15 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,30 @@ class Bureaucrat
 		int 		_grade;
 		
 	public:
-
-		Bureaucrat(std::string str, int grade);
+	
+		class	GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 		
-		std::string	GradeTooHighException();
-		std::string	GradeTooLowException();
-		std::string	GetName();
-		int			GetGrade();
+		class	GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		Bureaucrat();
+		Bureaucrat(std::string str, int grade);
+		Bureaucrat(Bureaucrat& b);
+		Bureaucrat& operator=(const Bureaucrat& b);
+		
+		std::string	GetName() const;
+		int			GetGrade() const;
 		void		IncreaseGrade(int i);
 		void		DecreaseGrade(int i);
 		
 		~Bureaucrat();
 };
 
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& f);
