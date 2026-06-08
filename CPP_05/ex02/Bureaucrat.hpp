@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 09:47:21 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/05 13:37:32 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/08 14:59:49 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "ShrubberyCreationForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -44,6 +47,8 @@ class Bureaucrat
 		int			GetGrade() const;
 		void		IncreaseGrade(int i);
 		void		DecreaseGrade(int i);
+		void		signForm(AForm& form);
+		void		executeForm(const AForm& form) const;
 		
 		~Bureaucrat();
 };
