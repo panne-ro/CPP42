@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 09:48:40 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/05 12:23:22 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/10 16:10:11 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,24 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 //constructor
 Bureaucrat::Bureaucrat()
+	:_name("Manu")
 {
-	_name = "Manu";
 	_grade = 75;
 }
 
 Bureaucrat::Bureaucrat(std::string str, int grade)
+	:_name(str)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
-	_name = str;
 	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat& b)
+	:_name(b._name)
 {
-	_name = b._name;
 	_grade = b._grade;
 }
 
@@ -50,7 +50,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
 	if (this != &b)
 	{
-		_name = b._name;
 		_grade = b._grade;
 	}
 	return (*this);

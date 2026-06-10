@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 09:47:21 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/05 13:37:32 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/10 16:07:09 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat
 {
 	private:
-		std::string	_name;
+		const std::string	_name;
 		int 		_grade;
 		
 	public:
