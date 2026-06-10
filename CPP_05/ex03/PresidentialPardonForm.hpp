@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 14:53:15 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/10 10:36:42 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/06/10 10:52:04 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/06/10 10:53:56 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERY_HPP
-#define SHRUBBERY_HPP
+#ifndef PRESIDENTIAL_HPP
+#define PRESIDENTIAL_HPP
 
 #include "AForm.hpp"
 #include <cstdlib>
-#include <fstream>
 
-class ShrubberyCreationForm: public AForm
+class PresidentialPardonForm: public AForm
 {
 	private:
-		std::string	_target;
-	
+		std::string _target;
+
 	public:
+	
 		void		executeAction() const;
-		
 		std::string	GetTarget() const;
 		
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string& target);
-		ShrubberyCreationForm(ShrubberyCreationForm& b);
-		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& b);
+		PresidentialPardonForm();
+		PresidentialPardonForm(const std::string& target);
+		PresidentialPardonForm(PresidentialPardonForm& b);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& b);
 
-		~ShrubberyCreationForm();
-
+		~PresidentialPardonForm();
 };
 
 #endif
