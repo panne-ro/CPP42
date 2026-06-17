@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 11:06:01 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/15 16:57:55 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/17 10:04:17 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,29 @@
 ScalarConverter::ScalarConverter()
 {
 }
-/*
-ScalarConverter::ScalarConverter(std::string str)
-{
-}
 
 ScalarConverter::ScalarConverter(ScalarConverter& b)
 {
+	if (this == &b)
+		return;
 }
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& b)
 {
+	if (this == &b)
+		return (*this);
 	return (*this);
-}*/
+}
+
+ScalarConverter::~ScalarConverter()
+{
+}
 
 //method
 
 void	ScalarConverter::convert(std::string str)
 {
 	e_type	Type = isValid(str);
-	
-	std::cout << Type << std::endl;
 
 	switch(Type)
 	{
@@ -53,8 +55,10 @@ void	ScalarConverter::convert(std::string str)
 			PrintFloat(str);
 			break;
 		case DOUBLE:
+			PrintDouble(str);
 			break;
 		case SPECIAL:
+			PrintSpecial(str);
 			break;
 	}
 }

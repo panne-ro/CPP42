@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 11:05:59 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/15 16:57:28 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/17 10:03:16 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 #define SCALAR_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
-#include <climits>
+#include <limits>
+#include <cmath>
+
+#define INT_MIN std::numeric_limits<int>::min()
+#define INT_MAX std::numeric_limits<int>::max()
+#define MIN_FLOAT std::numeric_limits<float>::min()
+#define MAX_FLOAT std::numeric_limits<float>::max()
+#define MIN_DOUBLE std::numeric_limits<double>::min()
+#define MAX_DOUBLE std::numeric_limits<double>::max()
 
 enum	e_type
 {
@@ -34,11 +43,9 @@ class ScalarConverter
 
 	private:
 	ScalarConverter();
-	/*
-	ScalarConverter(std::string str);
 	ScalarConverter(ScalarConverter& b);
 	ScalarConverter& operator=(const ScalarConverter& b);
-	*/
+	~ScalarConverter();
 	
 	static e_type	isValid(std::string str);
 	
@@ -51,6 +58,8 @@ class ScalarConverter
 	static void		PrintChar(std::string str);
 	static void		PrintInt(std::string str);
 	static void		PrintFloat(std::string str);
+	static void		PrintDouble(std::string str);
+	static void		PrintSpecial(std::string str);
 };
 
 #endif

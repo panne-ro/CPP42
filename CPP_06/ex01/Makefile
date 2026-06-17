@@ -1,9 +1,9 @@
-NAME = Convert
+NAME = Serializer
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ScalarConverter.cpp Types.cpp Printer.cpp
+SRC = main.cpp Serializer.cpp Data.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
