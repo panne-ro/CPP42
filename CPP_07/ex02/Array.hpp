@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 15:14:50 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/18 11:09:52 by panne-ro         ###   ########.fr       */
+/*   Created: 2026/06/18 09:53:22 by panne-ro          #+#    #+#             */
+/*   Updated: 2026/06/18 10:50:26 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <iostream>
 
-template <typename T, typename F>
-void	iter(T* array, const size_t size, F funct)
-{
-	for (size_t i = 0; i < size; i++)
-		fonct(array[i]);
-}
-
 template <typename T>
-void	Print(const T& a){
-	std::cout << a << std::endl;
-}
+class Array{
+	public:
+		Array();
+		Array(unsigned int n);
+		Array(Array& a);
+		~Array();
+
+		Array&	operator=(Array& a);
+		T&		operator[](unsigned int n);
+		T&		operator[](unsigned int n) const;
+		
+		unsigned int	size() const;
+	private:
+		T*		_data;
+		size_t	_size;
+};
+
+#include "Array.tpp"
 
 #endif
