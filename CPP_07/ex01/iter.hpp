@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 15:14:50 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/18 11:09:52 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/22 10:02:22 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template <typename T, typename F>
 void	iter(T* array, const size_t size, F funct)
 {
 	for (size_t i = 0; i < size; i++)
-		fonct(array[i]);
+		funct(array[i]);
 }
 
 template <typename T>

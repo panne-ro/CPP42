@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:22:40 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/17 14:39:19 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/22 10:02:42 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 template <typename T>
-void 	swap(T a, T b){
+void 	swap(T &a, T &b){
 	T c = a;
 	a = b;
 	b = c;
