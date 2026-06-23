@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:58:02 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/23 15:08:41 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/06/23 15:08:57 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class MutantStack : public std::stack<T>
 	iterator		begin();
 	iterator		end();
 	reverse_iterator rbegin();
-	reverse_iterator rend();08
+	reverse_iterator rend();
 	
 	const_iterator	cbegin() const;
 	const_iterator	cend() const;
