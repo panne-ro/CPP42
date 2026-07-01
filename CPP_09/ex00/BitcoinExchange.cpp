@@ -6,11 +6,13 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 10:17:52 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/06/29 12:56:44 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/07/01 12:47:42 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+//constructeur
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -26,6 +28,20 @@ BitcoinExchange::BitcoinExchange()
 		_RefMap[date] = std::atof(rate.c_str());
 	}
 }
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange& B)
+{
+	this->_RefMap = B._RefMap;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange& B)
+{
+	if (this != &B)
+		this->_RefMap = B._RefMap;
+	return (*this);
+}
+
+//methode
 
 void	BitcoinExchange::ReadDB(char *input) 
 {
@@ -104,6 +120,8 @@ void BitcoinExchange::ProcessLine(std::string date, std::string rate)
 	}
 	std::cout << date << " => " << std::atof(rate.c_str()) << " = " << std::atof(rate.c_str()) * it->second << std::endl;
 }
+
+//destructeur
 
 BitcoinExchange::~BitcoinExchange()
 {
