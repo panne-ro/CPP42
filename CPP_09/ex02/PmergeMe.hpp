@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:38:25 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/07/09 17:20:15 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/07/11 19:51:17 by bliblo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ struct Pair
 	int Small;
 };
 
+template <typename Container, typename PairContainer>
+void PairElements(const Container& input, PairContainer& pair)
+{
+	int count = input.size() / 2;
+	for (int i = 0; i < count; i++)
+	{
+		Pair P ;
+		P.Small = std::min(input[2*i], input[2*i + 1]);
+		P.Big = std::max(input[2*i], input[2*i + 1]);
+		pair.push_back(P);
+		std::cout << "Pair formed: " << P.Small << " " << P.Big << std::endl;
+	}
+}
+
 class PmergeMe
 {
 	public:
@@ -34,8 +48,10 @@ class PmergeMe
 	
 	void ParseArg(char **args);
 	void PrintContainers();
-	void PairElements();
-	
+	void SortPair();
+	void PairVectorFill();
+	void PairDequeFill();
+
 	~PmergeMe();
 	private:
 	
@@ -44,7 +60,6 @@ class PmergeMe
 	std::deque<int>		deque;
 	std::deque<Pair>	PairDeque;
 	int					size;
-	int					Lonely;
 	bool				HasLonely;
 
 };

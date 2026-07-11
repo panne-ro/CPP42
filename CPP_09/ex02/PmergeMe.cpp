@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 14:17:41 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/07/09 17:26:05 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/07/11 19:49:32 by bliblo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ PmergeMe::PmergeMe(PmergeMe& P)
 	this->vector = P.vector;
 	this->deque = P.deque;
 	this->HasLonely = P.HasLonely;
-	this->Lonely = P.Lonely;
 	this->PairVector = P.PairVector;
 	this->PairDeque = P.PairDeque;
 }
@@ -36,7 +35,6 @@ PmergeMe& PmergeMe::operator=(PmergeMe& P)
 		this->vector = P.vector;
 		this->deque = P.deque;
 		this->HasLonely = P.HasLonely;
-		this->Lonely = P.Lonely;
 		this->PairVector = P.PairVector;
 		this->PairDeque = P.PairDeque;
 	}
@@ -75,10 +73,7 @@ void	PmergeMe::ParseArg(char **args)
 		size++;
 	}
 	if (size % 2 != 0)
-	{
 		HasLonely = true;
-		Lonely = std::atoi(args[size]);
-	}
 }
 
 void	PmergeMe::PrintContainers()
@@ -88,41 +83,32 @@ void	PmergeMe::PrintContainers()
 		std::cout << vector[i] << "; ";
 	}
 	std::cout << std::endl;
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << deque[i] << "; ";
-	}
-	std::cout << std::endl;
+	//for (int i = 0; i < size; i++)
+	//{
+	//	std::cout << deque[i] << "; ";
+	//}
+	//std::cout << std::endl;
 }
 
-	void	PmergeMe::PairElements()
+void PmergeMe::PairVectorFill()
+{
+    PairElements(vector, PairVector);
+}
+
+void PmergeMe::PairDequeFill()
+{
+    PairElements(deque, PairDeque);
+}
+
+void	PmergeMe::SortPair()
+{
+	for (int i = 0; i < size - 1; i++)
 	{
-		int j = 0;
-		if (HasLonely == false)
-		{
-			for (int i = 0; i < size; i = i + 2)
-			{
-				Pair P;
-				P.Small = std::min(vector[i], vector[i + 1]);
-				P.Big = std::max(vector[i], vector[i + 1]);
-				PairVector.push_back(P);
-				std::cout << PairVector[j].Small << " " << PairVector[j].Big << std::endl;
-				j++;
-			}
-		}
-		else
-		{
-			for (int i = 0; i < size; i = i + 2)
-			{
-				Pair P;
-				P.Small = std::min(vector[i], vector[i + 1]);
-				P.Big = std::max(vector[i], vector[i + 1]);
-				PairVector.push_back(P);
-				std::cout << PairVector[j].Small << " " << PairVector[j].Big << std::endl;
-				j++;
-			}
-		}
+		if (PairVector[i].Big > PairVector[i+1].Big)
+			std::swap(PairVector[i], PairVector[i+1]);
+		SortPair();
 	}
+}	
 
 //destructeur
 
