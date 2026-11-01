@@ -14,19 +14,8 @@
 
 int main(int argc, char **argv)
 {
-	if (argc < 3)
-		return (1);
-	PmergeMe Merge;
-	try
-	{
-		Merge.ParseArg(argv);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "Before: ";
-	Merge.PrintContainers();
-	Merge.PairVectorFill();
-	Merge.PrintContainers();
+	PmergeMe Tri;
+
+	Tri._parseInput(argc, argv);
+	return 0;
 }

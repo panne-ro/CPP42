@@ -21,47 +21,27 @@
 
 struct Pair
 {
-	int Big;
-	int Small;
+	int a;
+	int b;
 };
-
-template <typename Container, typename PairContainer>
-void PairElements(const Container& input, PairContainer& pair)
-{
-	int count = input.size() / 2;
-	for (int i = 0; i < count; i++)
-	{
-		Pair P ;
-		P.Small = std::min(input[2*i], input[2*i + 1]);
-		P.Big = std::max(input[2*i], input[2*i + 1]);
-		pair.push_back(P);
-		std::cout << "Pair formed: " << P.Small << " " << P.Big << std::endl;
-	}
-}
 
 class PmergeMe
 {
 	public:
-	PmergeMe();
-	PmergeMe(PmergeMe& P);
-	PmergeMe& operator=(PmergeMe& P);
-	
-	void ParseArg(char **args);
-	void PrintContainers();
-	void SortPair();
-	void PairVectorFill();
-	void PairDequeFill();
+		PmergeMe();
+		PmergeMe(const PmergeMe &other);
+		PmergeMe &operator=(const PmergeMe &other);
+		~PmergeMe();
 
-	~PmergeMe();
+		void sort(int argc, char **argv);
+		void _parseInput(int argc, char **argv);
+
 	private:
-	
-	std::vector<int>	vector;
-	std::vector<Pair>	PairVector;
-	std::deque<int>		deque;
-	std::deque<Pair>	PairDeque;
-	int					size;
-	bool				HasLonely;
+		std::vector<Pair> _vectorPairs;
+		std::deque<Pair> _dequePairs;
 
+		void _sortVector();
+		void _sortDeque();
 };
 
 #endif
