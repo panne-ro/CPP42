@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:38:25 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/07/11 19:51:17 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/11/02 15:45:23 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,24 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &other);
 		~PmergeMe();
 
-		void sort(int argc, char **argv);
-		void _parseInput(int argc, char **argv);
-
+		void	sort(int argc, char **argv);
+		int		parseInput(int argc, char **argv);
+		
+		void 				_sortVector();
+		
 	private:
-		std::vector<Pair> _vectorPairs;
+		std::vector<Pair>	_vectorPairs;
+		std::vector<int>	_mainVector;
+		std::vector<int>	_pendVector;
+		
 		std::deque<Pair> _dequePairs;
-
-		void _sortVector();
-		void _sortDeque();
+		
+		int				*tabInt;
+		int				tabSize;
+		
+		int					_convertToInt(int argc, char **argv);
+		std::vector<int>	_fordJohnsonOrder(const std::vector<int> &order) const;
+		void 				_sortDeque();
 };
 
 #endif

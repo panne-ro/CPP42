@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bliblo <bliblo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 14:38:47 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/07/11 19:45:44 by bliblo           ###   ########.fr       */
+/*   Updated: 2026/11/02 14:10:10 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 int main(int argc, char **argv)
 {
 	PmergeMe Tri;
-
-	Tri._parseInput(argc, argv);
-	return 0;
+	
+	if (Tri.parseInput(argc, argv) == 0)
+	{
+		Tri._addToVector();
+		Tri._sortVector();
+		return 0;
+	}
+	return 1;
+		
 }
