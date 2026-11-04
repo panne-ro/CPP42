@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:38:25 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/11/02 15:45:23 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/11/04 18:41:06 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,18 @@
 #include <deque>
 #include <algorithm>
 
-struct Pair
+struct Element
 {
-	int a;
-	int b;
+	int value;
+	int id;
 };
+
+struct Lower
+{
+	Element lower;
+	int		biggerId;
+};
+
 
 class PmergeMe
 {
@@ -36,14 +43,10 @@ class PmergeMe
 		void	sort(int argc, char **argv);
 		int		parseInput(int argc, char **argv);
 		
-		void 				_sortVector();
+		std::vector<Element>	_sortVector(std::vector<Element> &order, int c);
+		std::vector<Element>	_startVector;
 		
 	private:
-		std::vector<Pair>	_vectorPairs;
-		std::vector<int>	_mainVector;
-		std::vector<int>	_pendVector;
-		
-		std::deque<Pair> _dequePairs;
 		
 		int				*tabInt;
 		int				tabSize;
