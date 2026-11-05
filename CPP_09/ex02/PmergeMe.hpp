@@ -6,7 +6,7 @@
 /*   By: panne-ro <panne-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:38:25 by panne-ro          #+#    #+#             */
-/*   Updated: 2026/11/04 18:41:06 by panne-ro         ###   ########.fr       */
+/*   Updated: 2026/11/05 14:30:52 by panne-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,23 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &other);
 		~PmergeMe();
 
-		void	sort(int argc, char **argv);
-		int		parseInput(int argc, char **argv);
-		
-		std::vector<Element>	_sortVector(std::vector<Element> &order, int c);
-		std::vector<Element>	_startVector;
-		
-	private:
+		int		sort(int argc, char **argv);
+
+		private:
 		
 		int				*tabInt;
 		int				tabSize;
 		
-		int					_convertToInt(int argc, char **argv);
-		std::vector<int>	_fordJohnsonOrder(const std::vector<int> &order) const;
-		void 				_sortDeque();
+		std::vector<Element>	_startVector;
+		std::deque<Element>		_startDeque;
+		
+		int						_parseInput(int argc, char **argv);
+		int						_convertToInt(int argc, char **argv);
+		
+		std::vector<Element>	_sortVector(std::vector<Element> &order);
+		std::deque<Element> 	_sortDeque(std::deque<Element> &order);
+		
+		int						_isOrdoned(std::vector<Element> vecRes, std::deque<Element> deqRes);
 };
 
 #endif
